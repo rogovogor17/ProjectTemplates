@@ -83,14 +83,14 @@ help:
 .PHONY: debug
 debug: configure-debug
 	@echo "$(YELLOW)Build debug version...$(NC)"
-	@$(CMAKE) --build $(DEBUG_BUILD_DIR) --config Debug
+	@$(CMAKE) --build $(DEBUG_BUILD_DIR) --config Debug -- --no-print-director
 	@echo "$(GREEN)✓ Debug build completed successfully$(NC)"
 
 # Release assemble
 .PHONY: release
 release: configure-release
 	@echo "$(YELLOW)Build release version...$(NC)"
-	@$(CMAKE) --build $(RELEASE_BUILD_DIR) --config Release
+	@$(CMAKE) --build $(RELEASE_BUILD_DIR) --config Release -- --no-print-director
 	@echo "$(GREEN)✓ Release build completed successfully$(NC)"
 
 # Both assemblies
@@ -158,7 +158,7 @@ build-src: configure-debug
 		exit 1; \
 	fi
 	@echo "$(YELLOW)Building $(FILE) with CMake...$(NC)"
-	@if cd $(DEBUG_BUILD_DIR) && $(CMAKE) --build . --target $(FILE); then \
+	@if cd $(DEBUG_BUILD_DIR) && $(CMAKE) --build . --target $(FILE) -- --no-print-director; then \
 		echo "$(GREEN)✓ Successfully built $(FILE)$(NC)"; \
 	else \
 		echo "$(RED)✗ Failed to build $(FILE) with CMake$(NC)"; \
@@ -177,7 +177,7 @@ build-src-release: configure-release
 		exit 1; \
 	fi
 	@echo "$(YELLOW)Building $(FILE) in release mode with CMake...$(NC)"
-	@if cd $(RELEASE_BUILD_DIR) && $(CMAKE) --build . --target $(FILE); then \
+	@if cd $(RELEASE_BUILD_DIR) && $(CMAKE) --build . --target $(FILE) -- --no-print-director; then \
 		echo "$(GREEN)✓ Successfully built $(FILE) in release mode$(NC)"; \
 	else \
 		echo "$(RED)✗ Failed to build $(FILE) with CMake$(NC)"; \
