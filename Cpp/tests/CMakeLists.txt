@@ -9,24 +9,22 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(googletest)
 
-add_executable(${PROJECT_NAME}_tests
-	test_main.cpp
-)
+file(GLOB_RECURSE TEST_FILES CONFIGURE_DEPENDS "test_*.cpp")
 
-target_link_libraries(${PROJECT_NAME}_tests
-    PRIVATE gtest_main
-    PRIVATE gtest
-)
+foreach(TEST_FILE ${TEST_FILES})
+    get_filename_component(TEST_NAME ${TEST_FILE} NAME_WE)
 
-target_include_directories(${PROJECT_NAME}_tests
-    PRIVATE ${CMAKE_SOURCE_DIR}/include
-    PRIVATE ${CMAKE_SOURCE_DIR}/src
-)
+    add_executable(${TEST_NAME} ${TEST_FILE})
 
-add_test(NAME ${PROJECT_NAME}_tests
-         COMMAND ${PROJECT_NAME}_tests)
+    target_link_libraries(${TEST_NAME}
+        PRIVATE gtest_main
+        PRIVATE gtest
+    )
 
-set_tests_properties(${PROJECT_NAME}_tests
-    PROPERTIES
-    ENVIRONMENT "GTEST_COLOR=1"
-)
+    add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
+
+    set_tests_properties(${TEST_NAME}
+        PROPERTIES
+        ENVIRONMENT "GTEST_COLOR=1"
+    )
+endforeach()

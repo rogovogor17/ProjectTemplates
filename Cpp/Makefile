@@ -22,6 +22,7 @@ PROJECT_ROOT := $(shell pwd)
 
 # Cmake flags
 CMAKE := cmake
+CMAKE_TESTS := ctest
 CMAKE_FLAGS := -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 # Default targets
@@ -40,6 +41,8 @@ help:
 	@echo "  $(GREEN)all$(NC)       		- Build both versions"
 	@echo "  $(MAGENTA)run-debug$(NC)    		- Run debug version"
 	@echo "  $(MAGENTA)run-release$(NC)  		- Run release version"
+	@echo "  $(YELLOW)test-debug$(NC)  			- Run debug test"
+	@echo "  $(YELLOW)test-release$(NC)  		- Run release test"
 	@echo "  $(RED)clean$(NC)     		- Clear all assemblies"
 	@echo "  $(WHITE)help$(NC)         		- Show help"
 
@@ -89,6 +92,20 @@ run-debug: debug
 run-release: release
 	@echo "$(MAGENTA)Run release version...$(NC)"
 	@./$(RELEASE_BUILD_DIR)/$(SOURCE_DIR)/$(PROJECT_NAME) $(ARGS)
+
+# Run debug tests
+.PHONY: test-debug
+test-debug: debug
+	@echo "$(YELLOW)Run debug tests...$(NC)"
+	@cd $(DEBUG_BUILD_DIR) && $(CMAKE_TESTS) $(ARGS)
+	@echo "$(GREEN)✓ Debug tests completed$(NC)"
+
+# Run release tests
+.PHONY: test-release
+test-release: release
+	@echo "$(YELLOW)Run release tests...$(NC)"
+	@cd $(RELEASE_BUILD_DIR) && $(CMAKE_TESTS) $(ARGS)
+	@echo "$(GREEN)✓ Release tests completed$(NC)"
 
 # Clear debug assemble
 .PHONY: clean-debug
