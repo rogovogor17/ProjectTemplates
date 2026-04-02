@@ -40,8 +40,6 @@ help:
 	@echo "  $(GREEN)all$(NC)       		- Build both versions"
 	@echo "  $(MAGENTA)run-debug$(NC)    		- Run debug version"
 	@echo "  $(MAGENTA)run-release$(NC)  		- Run release version"
-	@echo "  $(BLUE)build-src$(NC)     	- Build single file (make build-src FILE=filename)"
-	@echo "  $(BLUE)run-src$(NC)     		- Build and run single file (make run-src FILE=filename [ARGS=\"arguments\"])"
 	@echo "  $(RED)clean$(NC)     		- Clear all assemblies"
 	@echo "  $(WHITE)help$(NC)         		- Show help"
 
@@ -84,38 +82,13 @@ configure-release:
 .PHONY: run-debug
 run-debug: debug
 	@echo "$(MAGENTA)Run debug version...$(NC)"
-	@./$(DEBUG_BUILD_DIR)/$(PROJECT_NAME) $(ARGS)
+	@./$(DEBUG_BUILD_DIR)/$(SOURCE_DIR)/$(PROJECT_NAME) $(ARGS)
 
 # Run release version
 .PHONY: run-release
 run-release: release
 	@echo "$(MAGENTA)Run release version...$(NC)"
-	@./$(RELEASE_BUILD_DIR)/$(PROJECT_NAME) $(ARGS)
-
-# Build single file using CMake
-.PHONY: build-src
-build-src: configure-debug
-	@if [ -z "$(FILE)" ]; then \
-		echo "$(RED)Error: Please specify FILE parameter (filename without extension)$(NC)"; \
-		echo "$(YELLOW)Usage: make build-src FILE=filename$(NC)"; \
-		echo ""; \
-		echo "$(CYAN)Available source files:$(NC)"; \
-		$(MAKE) list-src; \
-		exit 1; \
-	fi
-	@echo "$(YELLOW)Building $(FILE) with CMake...$(NC)"
-	@if cd $(DEBUG_BUILD_DIR) && $(CMAKE) --build . --target $(FILE) -- --no-print-director; then \
-		echo "$(GREEN)✓ Successfully built $(FILE)$(NC)"; \
-	else \
-		echo "$(RED)✗ Failed to build $(FILE) with CMake$(NC)"; \
-		exit 1; \
-	fi
-
-# Run single file using CMake (debug mode by default)
-.PHONY: run-src
-run-src: build-src
-	@echo "$(MAGENTA)Running $(FILE) with arguments: $(ARGS)$(NC)"
-	@./$(DEBUG_BUILD_DIR)/$(FILE) $(ARGS)
+	@./$(RELEASE_BUILD_DIR)/$(SOURCE_DIR)/$(PROJECT_NAME) $(ARGS)
 
 # Clear debug assemble
 .PHONY: clean-debug
