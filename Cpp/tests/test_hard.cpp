@@ -1,8 +1,5 @@
 #include <gtest/gtest.h>
-
-int mul(int a, int b) {
-    return a * b;
-}
+#include "utils.hpp"
 
 class MulTest : public ::testing::TestWithParam<std::tuple<int, int, int>> {};
 

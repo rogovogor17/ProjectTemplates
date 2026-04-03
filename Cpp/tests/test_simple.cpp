@@ -1,8 +1,5 @@
 #include <gtest/gtest.h>
-
-int add(int a, int b) {
-    return a + b;
-}
+#include "utils.hpp"
 
 class MathTest : public ::testing::TestWithParam<std::tuple<int, int, int>> {};
 

@@ -19,6 +19,7 @@ foreach(TEST_FILE ${TEST_FILES})
     target_link_libraries(${TEST_NAME}
         PRIVATE gtest_main
         PRIVATE gtest
+        PRIVATE implementation
     )
 
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})

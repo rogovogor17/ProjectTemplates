@@ -22,5 +22,6 @@ set(IWYU_COMMAND "${IWYU_PATH}"
 )
 set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE ${IWYU_COMMAND})
 
+add_library(implementation)
 add_subdirectory(src)
 add_subdirectory(tests)
