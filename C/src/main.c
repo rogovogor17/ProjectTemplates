@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "utils.h"
 
 int main(int argc, char **argv) {
 
@@ -6,6 +7,8 @@ int main(int argc, char **argv) {
 		printf("argv[1]: %s\n", argv[1]);
 	else
 		printf("Hello, world!\n");
+
+	printf("result: %d\n", add(52, 0));
 
 	return 0;
 }

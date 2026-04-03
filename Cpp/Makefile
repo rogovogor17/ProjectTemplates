@@ -41,8 +41,8 @@ help:
 	@echo "  $(GREEN)all$(NC)       		- Build both versions"
 	@echo "  $(MAGENTA)run-debug$(NC)    		- Run debug version"
 	@echo "  $(MAGENTA)run-release$(NC)  		- Run release version"
-	@echo "  $(YELLOW)test-debug$(NC)  			- Run debug test"
-	@echo "  $(YELLOW)test-release$(NC)  		- Run release test"
+	@echo "  $(YELLOW)test-debug$(NC)  		- Run debug test"
+	@echo "  $(YELLOW)test-release$(NC)  	- Run release test"
 	@echo "  $(RED)clean$(NC)     		- Clear all assemblies"
 	@echo "  $(WHITE)help$(NC)         		- Show help"
 
