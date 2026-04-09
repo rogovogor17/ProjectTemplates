@@ -13,5 +13,5 @@ add_executable(${MAIN_TARGET}
 
 target_link_libraries(${MAIN_TARGET} PUBLIC implementation)
 target_include_directories(${MAIN_TARGET} PUBLIC ${CMAKE_SOURCE_DIR}/include)
-target_compile_options(${MAIN_TARGET} PUBLIC $<$<CONFIG:Debug>:${DEBUG_FLAGS}>)
-target_link_options(${MAIN_TARGET} PUBLIC $<$<CONFIG:Debug>:${DEBUG_FLAGS}>)
+target_compile_options(${MAIN_TARGET} PUBLIC ${FLAGS})
+target_link_options(${MAIN_TARGET} PUBLIC ${FLAGS})
