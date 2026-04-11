@@ -14,7 +14,7 @@ set(FLAGS -DDEBUG -O0 -fsanitize=address,alignment -Wall -Wextra -Wfloat-equal
 	-fPIE -fno-omit-frame-pointer -Werror=vla)
 
 find_program(IWYU_PATH NAMES include-what-you-use iwyu)
-if(${IWYU_PATH})
+if(IWYU_PATH)
 	set(IWYU_COMMAND "${IWYU_PATH}"
 		"-Xiwyu;--verbose=1;"
 		"-Xiwyu;--comment_style=long;"
