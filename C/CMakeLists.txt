@@ -22,12 +22,11 @@ if(IWYU_PATH)
 	set(IWYU_COMMAND "${IWYU_PATH}"
 		"-Xiwyu;--verbose=1;"
 		"-Xiwyu;--comment_style=long;"
-		"-isysroot;${CMAKE_OSX_SYSROOT};"
 		"-Xiwyu;--mapping_file=$ENV{IWYU_MAPPING_FILE};"
 	)
-	set(CMAKE_CXX_INCLUDE_WHAT_YOU_USE ${IWYU_COMMAND})
 endif()
 
-add_library(implementation)
+add_library(implementation STATIC)
 add_subdirectory(src)
 add_subdirectory(tests)
+add_subdirectory(benchmarks)

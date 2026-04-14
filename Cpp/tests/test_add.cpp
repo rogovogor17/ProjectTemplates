@@ -1,8 +1,6 @@
 #include <gtest/gtest.h>
 
-extern "C" {
-#include "utils.h"
-}
+#include "utils.hpp"
 
 class MathTest : public ::testing::TestWithParam<std::tuple<int, int, int>> {};
 

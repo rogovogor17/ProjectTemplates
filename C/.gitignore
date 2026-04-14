@@ -1,7 +1,11 @@
 # Build directories
 build/
+temp/
 bin/
 lib/
+
+docs/html/
+docs/latex/
 
 # IDE files
 .vscode/
