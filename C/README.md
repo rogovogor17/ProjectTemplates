@@ -1,5 +1,6 @@
 <a id="readme-top"></a>
 
+[![C][c-shield]][c-url]
 [![C++][cpp-shield]][cpp-url]
 [![CMake][cmake-shield]][cmake-url]
 [![Benchmark][benchmark-shield]][benchmark-url]
@@ -8,11 +9,11 @@
 <br />
 <div align="center">
   <a href="https://github.com/your_username/attention">
-    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/CPP.svg" alt="Logo" width="80" height="80">
+    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/C.svg" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">My Project</h3>
-  <h4 align="center">High-Performance C++ Implementation</h4>
+  <h4 align="center">High-Performance C Implementation</h4>
 
 <div align="center">
 
@@ -72,13 +73,13 @@ Project Description
 
 ### Prerequisites
 
-| Tool              | Version       | Installation Command (Ubuntu)   |
-| ----------------- | ------------- | ------------------------------- |
-| **CMake**         | ≥ 3.20        | `sudo apt install cmake`        |
-| **C++ Compiler**  | C++17 capable | GCC 9+, Clang 12+               |
-| **Git**           | Latest        | `sudo apt install git`          |
-| **.clang-format** | 22.0.0        | `sudo apt install clang-format` |
-| **Doxygen**       | 1.16.0        | `sudo apt install doxygen`      |
+| Tool              | Version     | Installation Command (Ubuntu)   |
+| ----------------- | ----------- | ------------------------------- |
+| **CMake**         | ≥ 3.20      | `sudo apt install cmake`        |
+| **C Compiler**    | C17 capable | GCC 9+, Clang 12+               |
+| **Git**           | Latest      | `sudo apt install git`          |
+| **.clang-format** | 22.0.0      | `sudo apt install clang-format` |
+| **Doxygen**       | 1.16.0      | `sudo apt install doxygen`      |
 
 ### Installation
 
@@ -248,6 +249,8 @@ Some words for importance of your project and making it more efficient
   <sub>© 2026 — My Project in C++</sub>
 </div>
 
+[c-shield]: https://img.shields.io/badge/C-17/20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white
+[c-url]: https://isoc.org/
 [cpp-shield]: https://img.shields.io/badge/C++-17/20-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [cpp-url]: https://isocpp.org/
 [cmake-shield]: https://img.shields.io/badge/CMake-3.20+-064F8C?style=for-the-badge&logo=cmake&logoColor=white
